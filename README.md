@@ -4,12 +4,12 @@
 
 ## Supported tags and respective `Dockerfile` links
 
-* `2.1.6-stretch` _(2.1.6/stretch/Dockerfile)_
-* `2.1.5-stretch` _(2.1.5/stretch/Dockerfile)_
+* `2.1.6-stretch`, `2.1.6` _(2.1.6/stretch/Dockerfile)_
+* `2.1.5-stretch`, `2.1.5` _(2.1.5/stretch/Dockerfile)_
 
 ## Image Variants
 
-### `bxggs/ruby:<version>-stretch`
+### `bxggs/ruby:<version>`, `bxggs/ruby:<version>-stretch`
 
 * Uses Debian Stretch as its base image
 * Uses [bxggs/rvm:1.29.7][docker-rvm] as its base image

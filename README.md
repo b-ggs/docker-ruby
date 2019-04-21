@@ -11,8 +11,7 @@
 
 ### `bxggs/ruby:<version>`, `bxggs/ruby:<version>-stretch`
 
-* Uses Debian Stretch as its base image
-* Uses [bxggs/rvm:1.29.7][docker-rvm] as its base image
+* Uses [bxggs/rvm:1.29.7-stretch][docker-rvm] as its base image
 * Comes with the Ruby version specified by `<version>` installed via RVM
 
 ## Links

@@ -4,8 +4,8 @@
 
 ## Supported tags and respective `Dockerfile` links
 
-`2.1.6-stretch` _(2.1.6/stretch/Dockerfile)_
-`2.1.5-stretch` _(2.1.5/stretch/Dockerfile)_
+* `2.1.6-stretch` _(2.1.6/stretch/Dockerfile)_
+* `2.1.5-stretch` _(2.1.5/stretch/Dockerfile)_
 
 ## Image Variants
 

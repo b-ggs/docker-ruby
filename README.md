@@ -22,7 +22,7 @@
 
 ### `bxggs/ruby:2.1.5-jessie`
 
-* Taken from [docker-library/ruby@e1ead768e3e10af1d2857943efaf30fdd943958f][docker-libary-ruby-215], with some modifications to specify a Rubygems and Bundler version
+* Taken from [docker-library/ruby@e1ead768e3e10af1d2857943efaf30fdd943958f][docker-libary-ruby-215], with some modifications to specify Rubygems and Bundler versions
 
 ## Links
 

@@ -1,4 +1,4 @@
-# docker-rvm
+# docker-ruby
 
 💎 base image for ruby projects
 

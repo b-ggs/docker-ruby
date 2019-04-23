@@ -3,6 +3,10 @@ FROM buildpack-deps:jessie
 ENV RUBY_MAJOR 2.1
 ENV RUBY_VERSION 2.1.5
 ENV RUBY_DOWNLOAD_SHA256 4305cc6ceb094df55210d83548dcbeb5117d74eea25196a9b14fa268d354b100
+ENV RUBYGEMS_VERSION 2.4.8
+
+# skip installing gem documentation
+RUN echo 'install: --no-document\nupdate: --no-document' >> "$HOME/.gemrc"
 
 # some of ruby's build scripts are written in ruby
 # we purge this later to make sure our final image uses what we just built
@@ -20,15 +24,16 @@ RUN apt-get update \
   && make -j"$(nproc)" \
   && make install \
   && apt-get purge -y --auto-remove bison libgdbm-dev ruby \
+  && gem update --system $RUBYGEMS_VERSION \
   && rm -r /usr/src/ruby
-
-# skip installing gem documentation
-RUN echo 'gem: --no-rdoc --no-ri' >> "$HOME/.gemrc"
 
 # install things globally, for great justice
 ENV GEM_HOME /usr/local/bundle
 ENV PATH $GEM_HOME/bin:$PATH
-RUN gem install bundler \
+
+ENV BUNDLER_VERSION 1.10.6
+
+RUN gem install bundler --version "$BUNDLER_VERSION" \
   && bundle config --global path "$GEM_HOME" \
   && bundle config --global bin "$GEM_HOME/bin"
 

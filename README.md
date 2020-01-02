@@ -14,7 +14,7 @@
 
 ### `bxggs/ruby:<version>-bionic`
 
-* Uses [bxggs/rvm:1.29.8-bionic][docker-rvm] as its base image
+* Uses [bxggs/rvm:1.29.9-bionic][docker-rvm] as its base image
 * Comes with the Ruby version specified by `<version>` installed via RVM
 
 ### `bxggs/ruby:<version>-stretch`

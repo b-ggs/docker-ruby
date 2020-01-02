@@ -1,4 +1,4 @@
-FROM bxggs/rvm:1.29.8-bionic
+FROM bxggs/rvm:1.29.9-bionic
 
 ENV RUBY_VERSION=2.1.5
 

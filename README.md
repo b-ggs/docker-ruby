@@ -4,8 +4,8 @@
 
 ## Supported tags and respective `Dockerfile` links
 
+* `2.1.6-bionic`, _(2.1.6/bionic/Dockerfile)_
 * `2.1.5-bionic`, _(2.1.5/bionic/Dockerfile)_
-* `2.1.6-bionic`, _(2.1.5/bionic/Dockerfile)_
 * `2.1.6-jessie`, _(2.1.6/jessie/Dockerfile)_
 * `2.1.5-jessie`, _(2.1.5/jessie/Dockerfile)_
 

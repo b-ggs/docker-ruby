@@ -9,7 +9,7 @@ jobs:
     env:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
       DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
-      DOCKER_REPOSITORY: ruby
+      DOCKER_REPOSITORY: ${{ secrets.DOCKER_REPOSITORY }}
     strategy:
       matrix:
         DOCKER_TAG:
@@ -30,13 +30,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Build Docker image
-        run: docker build -t "$DOCKER_HUB_USERNAME/$DOCKER_REPOSITORY:$DOCKER_TAG" "$RELATIVE_PATH"
+        run: docker build -t "$DOCKER_REPOSITORY:$DOCKER_TAG" "$RELATIVE_PATH"
         env:
           DOCKER_TAG: ${{ matrix.DOCKER_TAG }}
           RELATIVE_PATH: ${{ matrix.RELATIVE_PATH }}
       - name: Log in to Docker Hub
         run: echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
-      - name: Push Docker iamage
-        run: docker push "$DOCKER_HUB_USERNAME/$DOCKER_REPOSITORY:$DOCKER_TAG"
+      - name: Push Docker image
+        run: docker push "$DOCKER_REPOSITORY:$DOCKER_TAG"
         env:
           DOCKER_TAG: ${{ matrix.DOCKER_TAG }}

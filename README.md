@@ -5,8 +5,7 @@
 ## Supported tags and respective `Dockerfile` links
 
 * `2.1.5-bionic`, _(2.1.5/bionic/Dockerfile)_
-* `2.1.6-stretch`, _(2.1.6/stretch/Dockerfile)_
-* `2.1.5-stretch`, _(2.1.5/stretch/Dockerfile)_
+* `2.1.6-bionic`, _(2.1.5/bionic/Dockerfile)_
 * `2.1.6-jessie`, _(2.1.6/jessie/Dockerfile)_
 * `2.1.5-jessie`, _(2.1.5/jessie/Dockerfile)_
 
@@ -14,12 +13,7 @@
 
 ### `bxggs/ruby:<version>-bionic`
 
-* Uses [bxggs/rvm:1.29.9-bionic][docker-rvm] as its base image
-* Comes with the Ruby version specified by `<version>` installed via RVM
-
-### `bxggs/ruby:<version>-stretch`
-
-* Uses [bxggs/rvm:1.29.7-stretch][docker-rvm] as its base image
+* Uses [bxggs/rvm:1.29.10-bionic][docker-rvm] as its base image
 * Comes with the Ruby version specified by `<version>` installed via RVM
 
 ### `bxggs/ruby:2.1.6-jessie`

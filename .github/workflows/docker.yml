@@ -1,0 +1,42 @@
+name: Build and push to Docker Hub
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      DOCKER_REPOSITORY: ruby
+    strategy:
+      matrix:
+        DOCKER_TAG:
+          - 2.1.5-jessie
+          - 2.1.5-bionic
+          - 2.1.6-jessie
+          - 2.1.6-bionic
+        include:
+          - DOCKER_TAG: 2.1.5-jessie
+            RELATIVE_PATH: 2.1.5/jessie
+          - DOCKER_TAG: 2.1.5-bionic
+            RELATIVE_PATH: 2.1.5/bionic
+          - DOCKER_TAG: 2.1.6-jessie
+            RELATIVE_PATH: 2.1.6/jessie
+          - DOCKER_TAG: 2.1.6-bionic
+            RELATIVE_PATH: 2.1.6/bionic
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Build Docker image
+        run: docker build -t "$DOCKER_HUB_USERNAME/$DOCKER_REPOSITORY:$DOCKER_TAG" "$RELATIVE_PATH"
+        env:
+          DOCKER_TAG: ${{ matrix.DOCKER_TAG }}
+          RELATIVE_PATH: ${{ matrix.RELATIVE_PATH }}
+      - name: Log in to Docker Hub
+        run: echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
+      - name: Push Docker iamage
+        run: docker push "$DOCKER_HUB_USERNAME/$DOCKER_REPOSITORY:$DOCKER_TAG"
+        env:
+          DOCKER_TAG: ${{ matrix.DOCKER_TAG }}

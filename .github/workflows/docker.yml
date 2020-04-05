@@ -9,7 +9,7 @@ jobs:
     env:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
       DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
-      DOCKER_REPOSITORY: ${{ secrets.DOCKER_REPOSITORY }}
+      DOCKER_REPOSITORY: bxggs/ruby
     strategy:
       matrix:
         DOCKER_TAG:

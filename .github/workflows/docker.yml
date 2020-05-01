@@ -11,6 +11,7 @@ jobs:
       DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
       DOCKER_REPOSITORY: bxggs/ruby
     strategy:
+      fail-fast: false
       matrix:
         DOCKER_TAG:
           - 2.4.10-focal

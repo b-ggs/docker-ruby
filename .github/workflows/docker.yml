@@ -28,33 +28,43 @@ jobs:
           - DOCKER_TAG: 2.4.10-focal
             IMAGE_BASE: bxggs/rvm:1.29.10-focal
             RUBY_VERSION: 2.4.10
+            RUBY_MINOR: 2.4
           - DOCKER_TAG: 2.4.10-bionic
             IMAGE_BASE: bxggs/rvm:1.29.10-bionic
             RUBY_VERSION: 2.4.10
+            RUBY_MINOR: 2.4
           - DOCKER_TAG: 2.3.8-focal
             IMAGE_BASE: bxggs/rvm:1.29.10-focal
             RUBY_VERSION: 2.3.8
+            RUBY_MINOR: 2.3
           - DOCKER_TAG: 2.3.8-bionic
             IMAGE_BASE: bxggs/rvm:1.29.10-bionic
             RUBY_VERSION: 2.3.8
+            RUBY_MINOR: 2.3
           - DOCKER_TAG: 2.2.10-focal
             IMAGE_BASE: bxggs/rvm:1.29.10-focal
             RUBY_VERSION: 2.2.10
+            RUBY_MINOR: 2.2
           - DOCKER_TAG: 2.2.10-bionic
             IMAGE_BASE: bxggs/rvm:1.29.10-bionic
             RUBY_VERSION: 2.2.10
+            RUBY_MINOR: 2.2
           - DOCKER_TAG: 2.1.10-focal
             IMAGE_BASE: bxggs/rvm:1.29.10-focal
             RUBY_VERSION: 2.1.10
+            RUBY_MINOR: 2.1
           - DOCKER_TAG: 2.1.10-bionic
             IMAGE_BASE: bxggs/rvm:1.29.10-bionic
             RUBY_VERSION: 2.1.10
+            RUBY_MINOR: 2.1
           - DOCKER_TAG: 2.1.5-focal
             IMAGE_BASE: bxggs/rvm:1.29.10-focal
             RUBY_VERSION: 2.1.5
+            RUBY_MINOR: 2.1
           - DOCKER_TAG: 2.1.5-bionic
             IMAGE_BASE: bxggs/rvm:1.29.10-bionic
             RUBY_VERSION: 2.1.5
+            RUBY_MINOR: 2.1
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -64,11 +74,13 @@ jobs:
             -t "$DOCKER_REPOSITORY:$DOCKER_TAG" \
             --build-arg IMAGE_BASE \
             --build-arg RUBY_VERSION \
+            --build-arg RUBY_MINOR \
             .
         env:
           DOCKER_TAG: ${{ matrix.DOCKER_TAG }}
           IMAGE_BASE: ${{ matrix.IMAGE_BASE }}
           RUBY_VERSION: ${{ matrix.RUBY_VERSION }}
+          RUBY_MINOR: ${{ matrix.RUBY_MINOR }}
       - name: Log in to Docker Hub
         run: echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
       - name: Push Docker image

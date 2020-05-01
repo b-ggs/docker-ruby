@@ -4,25 +4,28 @@
 
 ## Supported tags and respective `Dockerfile` links
 
-* `2.1.6-bionic`, _(2.1.6/bionic/Dockerfile)_
-* `2.1.5-bionic`, _(2.1.5/bionic/Dockerfile)_
-* `2.1.6-jessie`, _(2.1.6/jessie/Dockerfile)_
-* `2.1.5-jessie`, _(2.1.5/jessie/Dockerfile)_
+* `2.4.10-focal`
+* `2.4.10-bionic`
+* `2.3.8-focal`
+* `2.3.8-bionic`
+* `2.2.10-focal`
+* `2.2.10-bionic`
+* `2.1.10-focal`
+* `2.1.10-bionic`
+* `2.1.5-focal`
+* `2.1.5-bionic`
 
 ## Image Variants
+
+### `bxggs/ruby:<version>-focal`
+
+* Uses [bxggs/rvm:1.29.10-focal][docker-rvm] as its base image
+* Comes with the Ruby version specified by `<version>` installed via RVM
 
 ### `bxggs/ruby:<version>-bionic`
 
 * Uses [bxggs/rvm:1.29.10-bionic][docker-rvm] as its base image
 * Comes with the Ruby version specified by `<version>` installed via RVM
-
-### `bxggs/ruby:2.1.6-jessie`
-
-* Taken from [docker-library/ruby@d88c77ea84b114fdfcdaa022a4e43bb067d5ac81][docker-libary-ruby-216]
-
-### `bxggs/ruby:2.1.5-jessie`
-
-* Taken from [docker-library/ruby@e1ead768e3e10af1d2857943efaf30fdd943958f][docker-libary-ruby-215], with some modifications to specify Rubygems and Bundler versions
 
 ## Links
 

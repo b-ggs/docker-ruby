@@ -13,27 +13,61 @@ jobs:
     strategy:
       matrix:
         DOCKER_TAG:
-          - 2.1.5-jessie
+          - 2.4.10-focal
+          - 2.4.10-bionic
+          - 2.3.8-focal
+          - 2.3.8-bionic
+          - 2.2.10-focal
+          - 2.2.10-bionic
+          - 2.1.10-focal
+          - 2.1.10-bionic
+          - 2.1.5-focal
           - 2.1.5-bionic
-          - 2.1.6-jessie
-          - 2.1.6-bionic
         include:
-          - DOCKER_TAG: 2.1.5-jessie
-            RELATIVE_PATH: 2.1.5/jessie
+          - DOCKER_TAG: 2.4.10-focal
+            IMAGE_BASE: bxggs/rvm:1.29.10-focal
+            RUBY_VERSION: 2.4.10
+          - DOCKER_TAG: 2.4.10-bionic
+            IMAGE_BASE: bxggs/rvm:1.29.10-bionic
+            RUBY_VERSION: 2.4.10
+          - DOCKER_TAG: 2.3.8-focal
+            IMAGE_BASE: bxggs/rvm:1.29.10-focal
+            RUBY_VERSION: 2.3.8
+          - DOCKER_TAG: 2.3.8-bionic
+            IMAGE_BASE: bxggs/rvm:1.29.10-bionic
+            RUBY_VERSION: 2.3.8
+          - DOCKER_TAG: 2.2.10-focal
+            IMAGE_BASE: bxggs/rvm:1.29.10-focal
+            RUBY_VERSION: 2.2.10
+          - DOCKER_TAG: 2.2.10-bionic
+            IMAGE_BASE: bxggs/rvm:1.29.10-bionic
+            RUBY_VERSION: 2.2.10
+          - DOCKER_TAG: 2.1.10-focal
+            IMAGE_BASE: bxggs/rvm:1.29.10-focal
+            RUBY_VERSION: 2.1.10
+          - DOCKER_TAG: 2.1.10-bionic
+            IMAGE_BASE: bxggs/rvm:1.29.10-bionic
+            RUBY_VERSION: 2.1.10
+          - DOCKER_TAG: 2.1.5-focal
+            IMAGE_BASE: bxggs/rvm:1.29.10-focal
+            RUBY_VERSION: 2.1.5
           - DOCKER_TAG: 2.1.5-bionic
-            RELATIVE_PATH: 2.1.5/bionic
-          - DOCKER_TAG: 2.1.6-jessie
-            RELATIVE_PATH: 2.1.6/jessie
-          - DOCKER_TAG: 2.1.6-bionic
-            RELATIVE_PATH: 2.1.6/bionic
+            IMAGE_BASE: bxggs/rvm:1.29.10-bionic
+            RUBY_VERSION: 2.1.5
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Build Docker image
-        run: docker build -t "$DOCKER_REPOSITORY:$DOCKER_TAG" "$RELATIVE_PATH"
+        run: |
+          docker build \
+            -t "$DOCKER_REPOSITORY:$DOCKER_TAG" \
+            --build-arg IMAGE_BASE \
+            --build-arg RUBY_VERSION \
+            .
         env:
           DOCKER_TAG: ${{ matrix.DOCKER_TAG }}
-          RELATIVE_PATH: ${{ matrix.RELATIVE_PATH }}
+          IMAGE_BASE: ${{ matrix.IMAGE_BASE }}
+          RUBY_VERSION: ${{ matrix.RUBY_VERSION }}
       - name: Log in to Docker Hub
         run: echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
       - name: Push Docker image

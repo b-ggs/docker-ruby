@@ -19,12 +19,12 @@
 
 ### `bxggs/ruby:<version>-focal`
 
-* Uses [bxggs/rvm:1.29.10-focal][docker-rvm] as its base image
+* Uses [bxggs/rvm:1.29.12-focal][docker-rvm] as its base image
 * Comes with the Ruby version specified by `<version>` installed via RVM
 
 ### `bxggs/ruby:<version>-bionic`
 
-* Uses [bxggs/rvm:1.29.10-bionic][docker-rvm] as its base image
+* Uses [bxggs/rvm:1.29.12-bionic][docker-rvm] as its base image
 * Comes with the Ruby version specified by `<version>` installed via RVM
 
 ## Links

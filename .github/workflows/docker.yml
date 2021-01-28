@@ -1,5 +1,7 @@
 name: Build and push to Docker Hub
 on:
+  schedule:
+    - cron: 0 12 1 * *
   push:
     branches:
       - master

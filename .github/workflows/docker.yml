@@ -26,43 +26,43 @@ jobs:
           - 2.1.5-bionic
         include:
           - DOCKER_TAG: 2.4.10-focal
-            IMAGE_BASE: bxggs/rvm:1.29.10-focal
+            IMAGE_BASE: bxggs/rvm:1.29.12-focal
             RUBY_VERSION: 2.4.10
             RUBY_MINOR: 2.4
           - DOCKER_TAG: 2.4.10-bionic
-            IMAGE_BASE: bxggs/rvm:1.29.10-bionic
+            IMAGE_BASE: bxggs/rvm:1.29.12-bionic
             RUBY_VERSION: 2.4.10
             RUBY_MINOR: 2.4
           - DOCKER_TAG: 2.3.8-focal
-            IMAGE_BASE: bxggs/rvm:1.29.10-focal
+            IMAGE_BASE: bxggs/rvm:1.29.12-focal
             RUBY_VERSION: 2.3.8
             RUBY_MINOR: 2.3
           - DOCKER_TAG: 2.3.8-bionic
-            IMAGE_BASE: bxggs/rvm:1.29.10-bionic
+            IMAGE_BASE: bxggs/rvm:1.29.12-bionic
             RUBY_VERSION: 2.3.8
             RUBY_MINOR: 2.3
           - DOCKER_TAG: 2.2.10-focal
-            IMAGE_BASE: bxggs/rvm:1.29.10-focal
+            IMAGE_BASE: bxggs/rvm:1.29.12-focal
             RUBY_VERSION: 2.2.10
             RUBY_MINOR: 2.2
           - DOCKER_TAG: 2.2.10-bionic
-            IMAGE_BASE: bxggs/rvm:1.29.10-bionic
+            IMAGE_BASE: bxggs/rvm:1.29.12-bionic
             RUBY_VERSION: 2.2.10
             RUBY_MINOR: 2.2
           - DOCKER_TAG: 2.1.10-focal
-            IMAGE_BASE: bxggs/rvm:1.29.10-focal
+            IMAGE_BASE: bxggs/rvm:1.29.12-focal
             RUBY_VERSION: 2.1.10
             RUBY_MINOR: 2.1
           - DOCKER_TAG: 2.1.10-bionic
-            IMAGE_BASE: bxggs/rvm:1.29.10-bionic
+            IMAGE_BASE: bxggs/rvm:1.29.12-bionic
             RUBY_VERSION: 2.1.10
             RUBY_MINOR: 2.1
           - DOCKER_TAG: 2.1.5-focal
-            IMAGE_BASE: bxggs/rvm:1.29.10-focal
+            IMAGE_BASE: bxggs/rvm:1.29.12-focal
             RUBY_VERSION: 2.1.5
             RUBY_MINOR: 2.1
           - DOCKER_TAG: 2.1.5-bionic
-            IMAGE_BASE: bxggs/rvm:1.29.10-bionic
+            IMAGE_BASE: bxggs/rvm:1.29.12-bionic
             RUBY_VERSION: 2.1.5
             RUBY_MINOR: 2.1
     steps:
